@@ -1,0 +1,51 @@
+:root {
+  --bg: #1a1b26;
+  --surface: #24283b;
+  --text: #c0caf5;
+  --muted: #565f89;
+  --accent: #7aa2f7;
+  --accent-hover: #89b4fa;
+  --success: #9ece6a;
+  --danger: #f7768e;
+  --font-jp: 'Noto Sans JP', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.jp {
+  font-family: var(--font-jp);
+}
