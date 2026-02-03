@@ -12,7 +12,8 @@ function shuffle(arr) {
 
 export default function TestView({ pool, mode, onStop }) {
   const [index, setIndex] = useState(0);
-  const ordered = useMemo(() => shuffle(pool), [pool]);
+  const [shuffleKey, setShuffleKey] = useState(0);
+  const ordered = useMemo(() => shuffle(pool), [pool, shuffleKey]);
   const current = ordered[index];
   const total = ordered.length;
   const isLast = index >= total - 1;
@@ -62,7 +63,14 @@ export default function TestView({ pool, mode, onStop }) {
           <button
             type="button"
             className="btn-primary"
-            onClick={() => setIndex((i) => (isLast ? 0 : i + 1))}
+            onClick={() => {
+            if (isLast) {
+              setShuffleKey((k) => k + 1);
+              setIndex(0);
+            } else {
+              setIndex((i) => i + 1);
+            }
+          }}
           >
             {isLast ? 'Start over' : 'Next'}
           </button>
